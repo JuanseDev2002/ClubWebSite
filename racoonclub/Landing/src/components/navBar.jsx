@@ -1,50 +1,110 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import Image from './image';
-
 import Logo from '../assets/img/UideLogo.webp';
 
+const Formulario = ({ onClose }) => {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      {/* Fondo con Blur (separado del formulario) */}
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-xl transition-all duration-300"></div>
 
+      {/* Contenedor del Formulario (SIN blur) */}
+      <div className="relative border-2 border-[var(--primary)] bg-white p-6 md:p-8 rounded-2xl shadow-lg w-[90%] md:w-[40%] max-w-lg z-50">
+        {/* Botón de Cierre */}
+        <button onClick={onClose} className="absolute top-1 right-2 text-[var(--primary)] text-lg font-semibold">
+          ✖
+        </button>
+
+        {/* Campos del Formulario */}
+        <div className="flex flex-col gap-4">
+          <input type="text" placeholder="Ingrese su número de cédula" className="text-[var(--secondary)] border-1 border-[var(--primary)] p-3 rounded-lg w-full" />
+          <input type="text" placeholder="Ingrese su nombre completo" className="text-[var(--secondary)] border-1 border-[var(--primary)] p-3 rounded-lg w-full" />
+          <div className="flex gap-4">
+            <select className="text-[var(--secondary)] border-1 border-[var(--primary)] p-2 rounded-lg w-full">
+              <option>Seleccione la carrera</option>
+            </select>
+            <select className="text-[var(--secondary)] border-1 border-[var(--primary)] p-3 rounded-lg w-full">
+              <option>Seleccione el ciclo</option>
+            </select>
+          </div>
+          <button className="bg-[var(--primary)] text-white p-3 rounded-lg w-full mt-4">
+            Solicitar inscripción
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Navbar = () => {
-    return (
-        <div class="fixed z-50 rounded-full bg-white mt-13 mr-10 ml-10 w-[95%] h-[13%]">
-            <ul class="my-0 mx-auto py-1 px-0 text-center">
-                <div class="mt-2">
-                    <li class='inline my-0 mx-auto'>
-                        <Image src={Logo} alt='Logo UIDE' styles='relative bottom-1 inline scale-80'></Image>
-                    </li>
-                    <li class="font-semibold text-xl list-none inline my-0 mx-auto">
-                        <a class="decoration-none my-auto ml-11 mr-2 px-2 size-4
-                         text-[var(--secondary)] rounded-lg inline hover:cursor-pointer" to="/">HISTORIA</a>
-                    </li>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
-                    <li class="font-semibold text-xl list-none inline my-0 mx-auto">
-                        <a class="decoration-none my-auto mx-4 px-2 size-4
-                         text-[var(--secondary)] rounded-lg inline hover:cursor-pointer" to="/Schedule">EXPERIENCIA</a>
-                    </li>
+  return (
+    <>
+      {/* Barra de Navegación */}
+      <div className="fixed z-50 bg-white rounded-xl mt-4 md:mt-13 mx-auto left-1/2 -translate-x-1/2 w-[95%] max-w-8xl h-16 md:h-[13%] shadow-md">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          <div className="flex items-center justify-between h-full">
+            {/* Logo */}
+            <div className="md:flex-shrink-0 absolute left-1/2 -translate-x-1/2 md:static md:transform-none">
+              <Image src={Logo} alt="Logo UIDE" styles="z-50 w-20 md:w-26 transform scale-90 md:ml-30" />
+            </div>
 
-                    <li class="font-semibold text-xl list-none inline my-0 mx-auto">
-                        <a class="decoration-none my-auto mx-4 px-2 size-4
-                         text-[var(--secondary)] rounded-lg inline hover:cursor-pointer" to="/VirtualLibrary">PROYECTOS</a>
-                    </li>
+            {/* Menú Desktop */}
+            <div className="hidden md:flex items-center space-x-10">
+              {['BENEFICIOS', 'TESTIMONIOS', 'PROYECTOS'].map((item) => (
+                <a key={item} href="#" className="text-[var(--secondary)] text-lg xl:text-xl hover:text-[var(--tertiary)] px-3 py-2 font-semibold transition-colors">
+                  {item}
+                </a>
+              ))}
+              <button
+                onClick={() => setShowForm(true)}
+                className="ml-4 text-lg xl:text-xl bg-[var(--primary)] text-white px-4 xl:px-6 py-2 xl:py-4 rounded-xl font-normal hover:scale-95 transition-transform"
+              >
+                ÚNETE AL CLUB
+              </button>
+            </div>
 
-                    <li class="font-semibold text-xl list-none inline my-0 mx-auto">
-                        <a class="decoration-none my-auto mx-4 px-2 size-4
-                         text-[var(--secondary)] rounded-lg inline hover:cursor-pointer" to="/Contact">LíNEAS</a>
-                    </li>
-                    <li class="font-semibold text-xl list-none inline my-0 mx-auto">
-                        <a class="bg-primary w-10 decoration-none my-auto mx-4 px-2 size-4
-                         text-[var(--secondary)] rounded-lg inline hover:cursor-pointer" to="/Contact">PARTICIPACIÓN</a>
-                    </li>
-                    <li class=" text-xl list-none inline my-0 mx-auto">
-                        <a  class="bg-[var(--primary)] text-[var(--white)] decoration-none mr-2 ml-10 px-6 py-4 size-4
-                         rounded-full inline hover:cursor-pointer" to="/Contact">ÚNETE AL CLUB</a>
-                    </li>
-                </div>
-            </ul>
+            {/* Menú Mobile */}
+            <div className="md:hidden flex items-center ml-auto">
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-[var(--secondary)] hover:text-primary focus:outline-none">
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {isMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-    );
-}
+
+        {/* Menú Mobile Desplegable */}
+        {isMenuOpen && (
+          <div className="md:hidden fixed top-20 left-1/2 -translate-x-1/2 w-[90%] max-w-md bg-white shadow-lg rounded-2xl">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {['BENEFICIOS', 'TESTIMONIOS', 'PROYECTOS'].map((item) => (
+                <a key={item} href="#" className="text-[var(--secondary)] text-center block px-3 py-3 text-lg font-medium hover:bg-gray-100 rounded-lg">
+                  {item}
+                </a>
+              ))}
+              <button
+                onClick={() => setShowForm(true)}
+                className="block w-[90%] mx-auto bg-[var(--primary)] text-white px-4 py-3 rounded-xl text-lg font-medium text-center mb-2 hover:bg-primary-dark"
+              >
+                ÚNETE AL CLUB
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Mostrar Formulario con efecto Blur en el fondo */}
+      {showForm && <Formulario onClose={() => setShowForm(false)} />}
+    </>
+  );
+};
 
 export default Navbar;

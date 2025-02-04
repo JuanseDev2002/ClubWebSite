@@ -1,33 +1,35 @@
 import React from 'react';
-
-import Image from './image';
 import Text from './text';
-import SocialMedia from './socialMedia';
 
-import LogoClubImg from '../assets/img/LogoClub.webp';
+import FacebookIcon from "../assets/svg/facebook.svg";
+import InstagramIcon from "../assets/svg/instagram.svg";
+import TikTokIcon from "../assets/svg/tiktok.svg";
+import YouTubeIcon from "../assets/svg/youtube.svg";
+import LinkedInIcon from "../assets/svg/linkedIn.svg";
 
 const Footer = () => {
     return (
-        <div class='h-79 bg-[#002050] border-t-[1px] border-white px-13 overflow-x-hidden'>
-            <div class='h-52'>
-                <Image src={LogoClubImg} alt='Logo Programing Club Racoon' styles='relative top-5 right-4 scale-80'></Image>
-                <Text text='La programación no es el futuro,' styles='text-white relative bottom-30 left-68 text-lg font-light'></Text>
-                <Text text='es el presente. ¡Se parte del' styles='text-white relative bottom-30 left-68 text-lg font-light'></Text>
-                <Text text='cambio con nosotros!' styles='text-white relative bottom-30 left-68 text-lg font-light'></Text>
-                <Text text='Dirección' styles='text-white relative bottom-55 left-153 text-xl font-medium'></Text>
-                <Text text='Calle Agustín Carrión Palacios' styles='text-white relative bottom-50 left-153 text-xl font-light'></Text>
-                <Text text='entre Av. Salvador Bustamante' styles='text-white relative bottom-50 left-153 text-xl font-light'></Text>
-                <Text text='Celi y Beethoven. Sector Jipiro ' styles='text-white relative bottom-50 left-153 text-xl font-light'></Text>
-                <Text text='Contacto' styles='text-white relative bottom-80 left-240 text-xl font-medium'></Text>
-                <Text text='charlie.act7@gmail.com' styles='text-white relative bottom-75 left-240 text-xl font-light'></Text>
-                <Text text='099 266 7927' styles='text-white relative bottom-75 left-240 text-xl font-light'></Text>
-            </div>
-            <div class='border-t-[1px] border-white'>
-            <Text text='©2025, Todos los derechos reservados' styles='text-white relative top-8 left-0 text-xl font-light'></Text>
-            <SocialMedia styles='relative bottom-10'></SocialMedia>
+        <div className="bg-[#002050] border-t border-white overflow-x-hidden flex flex-col md:flex-row items-center md:justify-between py-4 px-4 md:px-13 gap-4 md:gap-0">
+            <Text text="©2025, Todos los derechos reservados" styles="text-white text-base md:text-xl font-light" />
+            <div className='flex gap-3 relative'>
+              <a href="https://www.instagram.com/uide.loja/">
+                <img src={InstagramIcon} alt="Facebook" class="w-[27px] h-[27px]" />
+              </a>
+              <a href="https://www.linkedin.com/school/universidad-internacional-del-ecuador/">
+                <img src={LinkedInIcon} alt="Facebook" class="w-[27px] h-[27px]" />
+              </a>
+              <a href="https://www.facebook.com/UIDELoja">
+                <img src={FacebookIcon} alt="Instagram" class="w-[27px] h-[27px]" />
+              </a>
+              <a href="">
+                <img src={YouTubeIcon} alt="YouTube" class="relative w-[35px] h-[35px] bottom-1" />
+              </a>
+              <a href="https://www.tiktok.com/@uide_ec">
+                <img src={TikTokIcon} alt="TikTok" class=" w-[27px] h-[27px]" />
+              </a>
             </div>
         </div>
     );
-}
+};
 
 export default Footer;

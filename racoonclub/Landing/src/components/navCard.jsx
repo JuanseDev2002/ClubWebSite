@@ -3,7 +3,7 @@ import Card from "./card";
 
 const NavCard = ({ styles }) => {
   return (
-    <div class={`${styles} max-w-[100%]`}>
+    <div class={`${styles}`}>
       <ul class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory p-4">
         {[
           {
@@ -37,7 +37,7 @@ const NavCard = ({ styles }) => {
               text={card.text}
               user_name={card.user_name}
               carrer={card.carrer}
-              styles="inline-block p-6 min-w-[300px] max-w-[430px] h-50 rounded-2xl border-[var(--primary)] border-2 text-[var(--white)] bg-[var(--grey)]"
+              styles="inline-block p-6 min-w-[300px] max-w-[350px] h-50 rounded-2xl border-[var(--primary)] border-2 text-[var(--white)] bg-[var(--grey)]"
             />
           </li>
         ))}
