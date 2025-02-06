@@ -60,7 +60,7 @@ const Navbar = () => {
   return (
     <>
       {/* Barra de Navegación */}
-      <div className="fixed z-50 bg-white rounded-xl mt-4 md:mt-13 mx-auto left-1/2 -translate-x-1/2 w-[95%] max-w-8xl h-16 md:h-[13%] shadow-md">
+      <div className="fixed z-50 bg-white rounded-xl mt-4 md:mt-6 mx-auto left-1/2 -translate-x-1/2 w-[95%] max-w-8xl h-16 md:h-[13%] shadow-md">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
