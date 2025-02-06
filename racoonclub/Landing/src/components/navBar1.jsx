@@ -2,8 +2,69 @@ import React, { useState } from 'react';
 import Image from './image';
 import Logo from '../assets/img/UideLogo.webp';
 
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
 
 const Formulario = ({ onClose }) => {
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBhu50sXZrr7WyYKuxeGP7HNP6Zh7BXW-o",
+    authDomain: "racoonclubuide.firebaseapp.com",
+    projectId: "racoonclubuide",
+    storageBucket: "racoonclubuide.firebasestorage.app",
+    messagingSenderId: "886709922665",
+    appId: "1:886709922665:web:b191b7a9d9028678ffebf8",
+    measurementId: "G-YK9ZNVBNJL"
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  
+  const db = firebase.firestore();
+  
+  const inicializarFormulario = async () => {
+    const formulario = document.getElementById('Form'); // Selecciona el contenedor del formulario
+  
+    await formulario.addEventListener('submit', (e) => {
+      e.preventDefault(); // Evita la recarga de la página
+  
+      // Obtén los valores de los campos
+      const user_ci = formulario.querySelector('input[type="number"]').value;
+      const user_name = formulario.querySelector('input[type="text"]').value;
+      const user_career = formulario.querySelector('select:nth-child(1)').value; // Selecciona el primer select
+      const user_level = formulario.querySelector('select:nth-child(2)').value; // Selecciona el segundo select
+  
+      // Validación básica (puedes agregar más validaciones)
+      if (!user_ci || !user_name || user_career === "Seleccione la carrera" || user_level === "Seleccione el ciclo") {
+        alert("Por favor, complete todos los campos.");
+        return;
+      }
+  
+      const userData = {
+        user_ci: user_ci,
+        user_name: user_name,
+        user_career: user_career,
+        user_level: user_level
+      };
+  
+      db.collection('usuarios').add(userData)
+        .then(() => {
+          alert('Solicitud de inscripción enviada correctamente.');
+          formulario.reset(); // Limpia el formulario
+        })
+        .catch((error) => {
+          console.error('Error al enviar la solicitud:', error);
+          alert('Error al enviar la solicitud. Por favor, inténtalo de nuevo.');
+        });
+    });
+  }
+  
+  
+  // Llamar a la función para inicializar el formulario (asegúrate de que el DOM esté cargado)
+  document.addEventListener('DOMContentLoaded', inicializarFormulario);
+
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -17,7 +78,7 @@ const Formulario = ({ onClose }) => {
           ✖
         </button>
         {/* Campos del Formulario */}
-        <form className="flex flex-col gap-4">
+        <form id='Form' className="flex flex-col gap-4">
           <input type="number" placeholder="Ingrese su número de cédula" className="text-[var(--secondary)] border-1 border-[var(--primary)] p-3 rounded-lg w-full" />
           <input type="text" placeholder="Ingrese su nombre completo" className="text-[var(--secondary)] border-1 border-[var(--primary)] p-3 rounded-lg w-full" />
           <div className="flex gap-4">
