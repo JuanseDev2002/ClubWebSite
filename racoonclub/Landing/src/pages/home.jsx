@@ -44,7 +44,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="text-center py-16 bg-cover bg-center bg-no-repeat" 
+      <section id='benefitsSection'className="text-center py-16 bg-cover bg-center bg-no-repeat" 
                style={{ backgroundImage: `url(${NetImg})` }}>
         <Text text="Beneficios de unirte" styles="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[var(--secondary)] mt-6" />
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
@@ -59,7 +59,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-[var(--secondary)] py-16 text-white bg-cover bg-center bg-no-repeat" 
+      <section id='testimoniesSection' className="bg-[var(--secondary)] py-16 text-white bg-cover bg-center bg-no-repeat" 
                style={{ backgroundImage: `url(${PatronImg})` }}>
         <Text text="Nuestros estudiantes nos avalan" styles="text-center text-2xl mt-16 sm:text-3xl md:text-4xl lg:text-5xl font-semibold" />
         <Text text="Descubre por qué estudiantes eligen formar parte del Club de Programación en la UIDE."
@@ -70,7 +70,7 @@ function Home() {
         <Image src={RacoonDrawImg} alt="Racoon Draw" styles="transform scale-x-[-1] origin-center relative top-16 right-0 w-32 sm:w-40 md:w-48 lg:w-56" />
       </section>
 
-      <section className="text-center px-23 pt-5 pb-16 bg-white bg-cover bg-center bg-no-repeat">
+      <section id='proyectsSection' className="text-center px-23 pt-5 pb-16 bg-white bg-cover bg-center bg-no-repeat">
         <div class='relative lg:left-[29vw] lg:top-[36vh] sm:text-center md:text-center lg:text-left'>
           <Text text="Nuestros mejores" styles="mt-5 text-3xl sm:text-3xl md:text-4xl lg:text-[40px] font-semibold text-[var(--secondary)]" />
           <Text text="proyectos" styles="text-3xl sm:text-3xl md:text-4xl lg:text-[40px] font-semibold text-[var(--secondary)]" />

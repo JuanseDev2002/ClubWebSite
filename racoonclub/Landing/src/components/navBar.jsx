@@ -70,9 +70,9 @@ const Navbar = () => {
 
             {/* Menú Desktop */}
             <div className="hidden md:flex items-center space-x-10">
-              {['BENEFICIOS', 'TESTIMONIOS', 'PROYECTOS'].map((item) => (
-                <a key={item} href="#" className="text-[var(--secondary)] text-lg xl:text-xl hover:text-[var(--tertiary)] px-3 py-2 font-semibold transition-colors">
-                  {item}
+              {[['BENEFICIOS','#benefitsSection'], ['TESTIMONIOS','#testimoniesSection'], ['PROYECTOS','#proyectsSection']].map((item) => (
+                <a key={item} href={item[1]} className="text-[var(--secondary)] text-lg xl:text-xl hover:text-[var(--tertiary)] px-3 py-2 font-semibold transition-colors">
+                  {item[0]}
                 </a>
               ))}
               <button
@@ -102,9 +102,9 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden fixed top-20 left-1/2 -translate-x-1/2 w-[90%] max-w-md bg-white shadow-lg rounded-2xl">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {['BENEFICIOS', 'TESTIMONIOS', 'PROYECTOS'].map((item) => (
-                <a key={item} href="#" className="text-[var(--secondary)] text-center block px-3 py-3 text-lg font-medium hover:bg-gray-100 rounded-lg">
-                  {item}
+              {[['BENEFICIOS','#benefitsSection'], ['TESTIMONIOS','#testimoniesSection'], ['PROYECTOS','#proyectsSection']].map((item) => (
+                <a key={item} href={item[1]} className="text-[var(--secondary)] text-center block px-3 py-3 text-lg font-medium hover:bg-gray-100 rounded-lg">
+                  {item[0]}
                 </a>
               ))}
               <button
