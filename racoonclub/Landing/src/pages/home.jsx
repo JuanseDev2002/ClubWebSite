@@ -7,6 +7,7 @@ import Text from '../components/text';
 import NavCard from '../components/navCard';
 import Footer from '../components/footer';
 import NavProjects from '../components/navProjects';
+import NavBud from '../components/navBud';
 
 // Import of Sources
 import AiRacoonImg from '../assets/img/AiRacoon.webp';
@@ -44,22 +45,31 @@ function Home() {
         </div>
       </section>
 
-      <section id='benefitsSection'className="text-center py-16 bg-cover bg-center bg-no-repeat" 
+      <section id='nosotros' class='bg-white text-center py-20 overflow-x-hidden'>
+        <Text text='Fomentar la colaboración entre estudiantes, compartir conocimientos y' styles='text-[var(--secondary)] text-2xl'></Text>
+        <Text text='participar en proyectos y competiciones que permitan aplicar lo' styles='text-[var(--secondary)] text-2xl'></Text>
+        <Text text='aprendido en contextos reales.' styles='text-[var(--secondary)] text-2xl'></Text>
+        <Text text='Líneas de desarrollo' styles='text-[var(--secondary)] text-[44px] font-semibold mt-12'></Text>
+        <NavBud></NavBud>
+        <Image src={AiRacoonImg} alt='Imagen de ejemplo' styles='mx-auto mt-30 sm:w-[80vw] md:w-[80vw] lg:w-[60vw] w-[80vw] rounded-4xl'></Image>
+      </section>
+
+      <section id='beneficios'className="text-center py-16 bg-cover bg-center bg-no-repeat" 
                style={{ backgroundImage: `url(${NetImg})` }}>
         <Text text="Beneficios de unirte" styles="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[var(--secondary)] mt-6" />
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
           <div className="text-center max-w-sm">
             <Image src={MetaPeopleImg} alt="Meta People" styles="w-40 sm:w-48 md:w-56 lg:w-64 h-auto mx-auto" />
-            <Text text="Desarrolla habilidades para el mundo laboral." styles="text-sm sm:text-md md:text-lg font-semibold text-[var(--secondary)] mt-4" />
+            <Text text="Desarrolla habilidades para el mundo laboral." styles="text-sm sm:text-md md:text-lg font-semibold text-[var(--secondary)]" />
           </div>
-          <div className="text-center max-w-sm">
+          <div className="text-center max-w-sm mt-14">
             <Image src={PeopleImg} alt="People" styles="w-40 sm:w-48 md:w-56 lg:w-64 h-auto mx-auto" />
-            <Text text="Conecta con expertos y estudiantes apasionados." styles="text-sm sm:text-md md:text-lg font-semibold text-[var(--secondary)] mt-4" />
+            <Text text="Conecta con expertos y estudiantes apasionados." styles="text-sm sm:text-md md:text-lg font-semibold text-[var(--secondary)] mt-10" />
           </div>
         </div>
       </section>
 
-      <section id='testimoniesSection' className="bg-[var(--secondary)] py-16 text-white bg-cover bg-center bg-no-repeat" 
+      <section id='testimonios' className="bg-[var(--secondary)] py-16 text-white bg-cover bg-center bg-no-repeat" 
                style={{ backgroundImage: `url(${PatronImg})` }}>
         <Text text="Nuestros estudiantes nos avalan" styles="text-center text-2xl mt-16 sm:text-3xl md:text-4xl lg:text-5xl font-semibold" />
         <Text text="Descubre por qué estudiantes eligen formar parte del Club de Programación en la UIDE."
@@ -70,16 +80,16 @@ function Home() {
         <Image src={RacoonDrawImg} alt="Racoon Draw" styles="transform scale-x-[-1] origin-center relative top-16 right-0 w-32 sm:w-40 md:w-48 lg:w-56" />
       </section>
 
-      <section id='proyectsSection' className="text-center px-23 pt-5 pb-16 bg-white bg-cover bg-center bg-no-repeat">
-        <div class='relative lg:left-[29vw] lg:top-[36vh] sm:text-center md:text-center lg:text-left'>
+      <section id='proyectos' className="text-center px-25 bg-white bg-cover bg-center bg-no-repeat overflow-x-hidden">
+        <div class='relative lg:top-[36vh] lg:left-96 sm:text-center md:text-center lg:text-left'>
           <Text text="Nuestros mejores" styles="mt-5 text-3xl sm:text-3xl md:text-4xl lg:text-[40px] font-semibold text-[var(--secondary)]" />
           <Text text="proyectos" styles="text-3xl sm:text-3xl md:text-4xl lg:text-[40px] font-semibold text-[var(--secondary)]" />
         </div>
         <div class='text-center md:text-left'>
-          <Text text="Proyectos realizados por nuestros estudiantes con las habilidades" styles="mt-5 text-md sm:text-md md:text-xl font-normal text-[var(--secondary)]" />
+          <Text text="Proyectos realizados por nuestros estudiantes con las habilidades" styles="text-md sm:text-md md:text-xl font-normal text-[var(--secondary)]" />
           <Text text="adquiridas durante las capacitaciones especializadas" styles="text-md sm:text-md md:text-xl font-normal text-[var(--secondary)]" />
         </div>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
+        <div className="flex flex-col md:flex-row mt-[8vh]">
           <NavProjects></NavProjects>
         </div>
       </section>
@@ -101,7 +111,7 @@ function Home() {
         </div>
         <div className='md:w-1/4 w-full text-center md:text-left mt-4 md:mt-0'> {/* Ancho adaptable para el contacto */}
             <Text text='Contacto' styles='text-white text-xl font-medium'></Text>
-            <Text text='charlie.act7@gmail.com' styles='text-white text-xl font-light'></Text>
+            <Text text='racoonclub@uide.edu.ec' styles='text-white text-xl font-light'></Text>
             <Text text='099 266 7927' styles='text-white text-xl font-light'></Text>
         </div>
       </section>

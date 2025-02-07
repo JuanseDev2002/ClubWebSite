@@ -4,7 +4,7 @@ const Project = ({name, bg_image, creator, styles, responsiveSettings}) => {
     return (
         <div class={styles}
          style={{ backgroundImage: `url(${bg_image})` }}>
-            <div class='bg-[rgba(0,0,0,0.20)] h-15 '>
+            <div class='bg-[rgba(0,0,0,0.20)] h-15'>
             <p class='inline relative top-1/3 right-1/3 text-md text-white font-medium'>{name}</p>
             </div>
             <div class={responsiveSettings}>

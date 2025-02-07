@@ -70,8 +70,8 @@ const Navbar = () => {
 
             {/* Menú Desktop */}
             <div className="hidden md:flex items-center space-x-10">
-              {[['BENEFICIOS','#benefitsSection'], ['TESTIMONIOS','#testimoniesSection'], ['PROYECTOS','#proyectsSection']].map((item) => (
-                <a key={item} href={item[1]} className="text-[var(--secondary)] text-lg xl:text-xl hover:text-[var(--tertiary)] px-3 py-2 font-semibold transition-colors">
+              {[['NOSOTROS','#nosotros'], ['BENEFICIOS','#beneficios'], ['TESTIMONIOS','#testimonios'], ['PROYECTOS','#proyectos']].map((item) => (
+                <a key={item} href={item[1]} className="text-[var(--secondary)] text-lg xl:text-xl hover:text-[var(--tertiary)] px-0 py-2 font-semibold transition-colors">
                   {item[0]}
                 </a>
               ))}

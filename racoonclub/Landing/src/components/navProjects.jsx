@@ -8,7 +8,7 @@ import FotoLibrary from '../assets/img/Library.png'
 
 const NavProjects = () => {
     return (
-        <div className='flex flex-col md:flex-row gap-11 p-4 mt-0'>
+        <div className='flex flex-col md:flex-row gap-18'>
             <Project name='Library' bg_image={FotoExample} creator='Juan Campana'
                 styles='md:w-80 w-82 h-100 sm:h-100 md:h-100 lg:h-[92vh] m-0 p-0 lg:scale-100 md:scale-90 sm:scale-80'
                 responsiveSettings='relative bg-[rgba(0,0,0,0.20)] h-15 sm:top-70 md:top-70 lg:top-115 top-70'

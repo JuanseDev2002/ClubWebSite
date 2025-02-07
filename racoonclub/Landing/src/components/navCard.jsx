@@ -37,7 +37,7 @@ const NavCard = ({ styles }) => {
               text={card.text}
               user_name={card.user_name}
               carrer={card.carrer}
-              styles="inline-block p-6 min-w-[300px] max-w-[350px] h-50 rounded-2xl border-[var(--primary)] border-2 text-[var(--white)] bg-[var(--grey)]"
+              styles="inline-block p-6 min-w-[300px] max-w-[360px] h-50 rounded-2xl border-[var(--primary)] border-2 text-[var(--white)] bg-[var(--grey)]"
             />
           </li>
         ))}
